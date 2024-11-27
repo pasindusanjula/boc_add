@@ -25,20 +25,26 @@ class _HomePageState extends State<HomePage> {
   }
 
   // Function to filter branches based on search query
+  // Function to filter branches based on search query
   void _filterBranches(String query) {
     final filtered = branches.where((branch) {
       final branchCode = branch['branch_code'].toLowerCase();
       final branchName = branch['branch_name'].toLowerCase();
+      final primaryCCT = branch['primary_cct'].toString().toLowerCase(); // Add Primary CCT
+      final secondaryCCT = branch['secondary_cct'].toString().toLowerCase(); // Add Secondary CCT
 
-      // Check if the query matches either branch name or branch code
+      // Check if the query matches any of the fields
       return branchCode.contains(query.toLowerCase()) ||
-          branchName.contains(query.toLowerCase());
+          branchName.contains(query.toLowerCase()) ||
+          primaryCCT.contains(query.toLowerCase()) ||
+          secondaryCCT.contains(query.toLowerCase());
     }).toList();
 
     setState(() {
       filteredBranches = filtered; // Update filtered branches list
     });
   }
+
 
   Future<List<Map<String, dynamic>>> _loadBranches() async {
     // Simulate loading branch data from an API or local storage

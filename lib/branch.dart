@@ -52,7 +52,7 @@ final List<Map<String, dynamic>> dummyBranchesData = [
     'province': 'Western',
     'branch_lan_ip': '192.168.1.1',
     'primary_wan': 'WAN-1',
-    'primary_cct': 'CCT-100',
+    'primary_cct': 'CCT-120',
     'primary_bw': '100Mbps',
     'primary_service': 'Fiber',
     'secondary_wan': 'WAN-2',
